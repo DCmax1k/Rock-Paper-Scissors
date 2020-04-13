@@ -9,7 +9,9 @@ This is a fully functional Rock, Paper, Scissors game against a bot!
 ### Front End:
 
 HTML
+<br />
 CSS
+<br />
 JavaScript
 
 ### Version Control:
