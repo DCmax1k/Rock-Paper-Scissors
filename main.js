@@ -24,19 +24,19 @@ function selectRock() {
     draws++;
     drawsText.innerHTML = draws;
     rock.classList.add('selection-tie');
-    setTimeout(() => rock.classList.remove('selection-tie'), 500);
+    setTimeout(() => rock.classList.remove('selection-tie'), 300);
   } else if (oppAnswer === 1) {
     explain.innerHTML = "Lost. Rock doesn't beat Paper!";
     oppScore++;
     oppText.innerHTML = oppScore;
     rock.classList.add('selection-lost');
-    setTimeout(() => rock.classList.remove('selection-lost'), 500);
+    setTimeout(() => rock.classList.remove('selection-lost'), 300);
   } else if (oppAnswer === 2) {
     explain.innerHTML = 'WON! Rock beats Scissors!';
     playerScore++;
     playerText.innerHTML = playerScore;
     rock.classList.add('selection-won');
-    setTimeout(() => rock.classList.remove('selection-won'), 500);
+    setTimeout(() => rock.classList.remove('selection-won'), 300);
   }
 }
 
@@ -51,19 +51,19 @@ function selectPaper() {
     playerScore++;
     playerText.innerHTML = playerScore;
     paper.classList.add('selection-won');
-    setTimeout(() => paper.classList.remove('selection-won'), 500);
+    setTimeout(() => paper.classList.remove('selection-won'), 300);
   } else if (oppAnswer === 1) {
     explain.innerHTML = 'TIE! Both picked Paper!';
     draws++;
     drawsText.innerHTML = draws;
     paper.classList.add('selection-tie');
-    setTimeout(() => paper.classList.remove('selection-tie'), 500);
+    setTimeout(() => paper.classList.remove('selection-tie'), 300);
   } else if (oppAnswer === 2) {
     explain.innerHTML = "Lost. Paper doesn't beat Scissors!";
     oppScore++;
     oppText.innerHTML = oppScore;
     paper.classList.add('selection-lost');
-    setTimeout(() => paper.classList.remove('selection-lost'), 500);
+    setTimeout(() => paper.classList.remove('selection-lost'), 300);
   }
 }
 
@@ -78,18 +78,18 @@ function selectScissors() {
     oppScore++;
     oppText.innerHTML = oppScore;
     scissors.classList.add('selection-lost');
-    setTimeout(() => scissors.classList.remove('selection-lost'), 500);
+    setTimeout(() => scissors.classList.remove('selection-lost'), 300);
   } else if (oppAnswer === 1) {
     explain.innerHTML = 'WON! Scissors beats Paper!';
     playerScore++;
     playerText.innerHTML = playerScore;
     scissors.classList.add('selection-won');
-    setTimeout(() => scissors.classList.remove('selection-won'), 500);
+    setTimeout(() => scissors.classList.remove('selection-won'), 300);
   } else if (oppAnswer === 2) {
     explain.innerHTML = 'TIE! Both picked Scissors!';
     draws++;
     drawsText.innerHTML = draws;
     scissors.classList.add('selection-tie');
-    setTimeout(() => scissors.classList.remove('selection-tie'), 500);
+    setTimeout(() => scissors.classList.remove('selection-tie'), 300);
   }
 }

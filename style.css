@@ -20,7 +20,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(white, rgb(3, 0, 17));
+  background: linear-gradient(rgb(3, 0, 17), white, rgb(3, 0, 17));
 }
 
 .header h1 {
@@ -28,6 +28,8 @@ body {
   font-size: 8vh;
   color: rgb(3, 0, 17);
   text-align: center;
+  animation-name: fade-in, float;
+  animation-duration: 1s;
 }
 
 .selections {
@@ -52,7 +54,9 @@ body {
   align-items: center;
   margin-top: 100px;
   cursor: pointer;
-  transition: all 0.1s ease;
+  transition: all 0.2s ease-in;
+  animation-name: fade-in, fall;
+  animation-duration: 2s;
 }
 
 .selection img {
@@ -65,15 +69,18 @@ body {
 }
 
 .selection-won {
-  box-shadow: 0 0px 10px rgb(0, 255, 42);
+  box-shadow: 0 0px 20px rgb(0, 255, 42);
+  border: 2px solid rgb(0, 255, 42);
 }
 
 .selection-lost {
-  box-shadow: 0 0px 10px rgb(255, 0, 0);
+  box-shadow: 0 0px 20px rgb(255, 0, 0);
+  border: 2px solid rgb(255, 0, 0);
 }
 
 .selection-tie {
-  box-shadow: 0 0px 10px rgb(107, 107, 107);
+  box-shadow: 0 0px 20px rgb(165, 165, 165);
+  border: 2px solid rgb(165, 165, 165);
 }
 
 .label {
@@ -93,6 +100,8 @@ body {
   transform: translateX(-50%);
   font-size: 30px;
   text-align: center;
+  animation-name: fade-in, float-absolute;
+  animation-duration: 2s;
 }
 
 table {
@@ -101,7 +110,13 @@ table {
   position: absolute;
   top: 450px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, 0);
+
+  animation-name: fade-in, float-absolute;
+  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 
 table th {
@@ -199,5 +214,41 @@ table td {
   .selection {
     height: 70px;
     width: 70px;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  from {
+    transform: translateY(50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-absolute {
+  from {
+    transform: translate(-50%, 50%);
+  }
+  to {
+    transform: translate(-50%, 0);
   }
 }
