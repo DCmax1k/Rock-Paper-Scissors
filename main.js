@@ -104,3 +104,34 @@ window.addEventListener('keyup', (e) => {
     selectScissors();
   }
 });
+
+// If score is impressive message
+window.addEventListener('click', impressive);
+window.addEventListener('keyup', impressive);
+
+function impressive() {
+  setTimeout(() => {
+    if (playerScore === 1 && oppScore === 0 && draws === 0) {
+      explain.innerHTML = `WOW! Won the first one, but how far can you go?`;
+    } else if (playerScore === 10 && oppScore === 0) {
+      explain.innerHTML = `YOU ARE VERY IMPRESSIVE! 10 - ${draws} - 0, WOW`;
+    } else if (playerScore === 0 && oppScore === 10) {
+      let resetScore = prompt(
+        `Would you like to reset the score because it is 0 - ${draws} - 10... Just say 'Yes' or 'No'`
+      );
+      if (resetScore.toLowerCase().trim() === 'yes') {
+        playerScore = 0;
+        oppScore = 0;
+        draws = 0;
+        playerText.innerHTML = 0;
+        drawsText.innerHTML = 0;
+        oppText.innerHTML = 0;
+        explain.innerHTML = `Reset the score to 0 - 0 - 0`;
+      } else if (resetScore.toLowerCase().trim() === 'no') {
+        explain.innerHTML = 'Continuing the game...';
+      }
+    } else if (playerScore === oppScore + 20) {
+      explain.innerHTML = `CONGRATS! You are winning by 20 points, the score it ${playerScore} - ${draws} - ${oppScore}!`;
+    }
+  }, 100);
+}
