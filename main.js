@@ -93,3 +93,14 @@ function selectScissors() {
     setTimeout(() => scissors.classList.remove('selection-tie'), 300);
   }
 }
+
+// Shortcut Keys
+window.addEventListener('keyup', (e) => {
+  if (e.keyCode === 49 || e.keyCode === 97) {
+    selectRock();
+  } else if (e.keyCode === 50 || e.keyCode === 98) {
+    selectPaper();
+  } else if (e.keyCode === 51 || e.keyCode === 99) {
+    selectScissors();
+  }
+});
