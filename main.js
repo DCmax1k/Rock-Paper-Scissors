@@ -131,7 +131,7 @@ function impressive() {
         explain.innerHTML = 'Continuing the game...';
       }
     } else if (playerScore === oppScore + 20) {
-      explain.innerHTML = `CONGRATS! You are winning by 20 points, the score it ${playerScore} - ${draws} - ${oppScore}!`;
+      explain.innerHTML = `CONGRATS! You are winning by 20 points, the score is ${playerScore} - ${draws} - ${oppScore}!`;
     }
   }, 100);
 }
