@@ -111,9 +111,7 @@ window.addEventListener('keyup', impressive);
 
 function impressive() {
   setTimeout(() => {
-    if (playerScore === 1 && oppScore === 0 && draws === 0) {
-      explain.innerHTML = `WOW! Won the first one, but how far can you go?`;
-    } else if (playerScore === 10 && oppScore === 0) {
+    if (playerScore === 10 && oppScore === 0) {
       explain.innerHTML = `YOU ARE VERY IMPRESSIVE! 10 - ${draws} - 0, WOW`;
     } else if (playerScore === 0 && oppScore === 10) {
       let resetScore = prompt(
@@ -135,3 +133,30 @@ function impressive() {
     }
   }, 100);
 }
+
+// Store score in local storage
+window.onbeforeunload = () => {
+  if (playerScore > 0 || draws > 0 || oppScore > 0) {
+    localStorage.setItem('playerScore', playerScore);
+    localStorage.setItem('draws', draws);
+    localStorage.setItem('oppScore', oppScore);
+  }
+};
+
+// Get score
+window.onload = () => {
+  let check = localStorage.getItem('playerScore');
+  if (check) {
+    let question = confirm(
+      'Would you like to load the score from last session?'
+    );
+    if (question === true) {
+      playerScore = localStorage.getItem('playerScore');
+      draws = localStorage.getItem('draws');
+      oppScore = localStorage.getItem('oppScore');
+      playerText.innerHTML = playerScore;
+      drawsText.innerHTML = draws;
+      oppText.innerHTML = oppScore;
+    }
+  }
+};
