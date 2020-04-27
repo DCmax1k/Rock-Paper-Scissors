@@ -132,6 +132,60 @@ table td {
   padding: 4px 8px;
 }
 
+.alert-box {
+  position: absolute;
+  width: 50%;
+  height: 75%;
+  background: rgb(22, 22, 22);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px double white;
+  box-shadow: 0 0 10px white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.alert-box h1 {
+  color: white;
+  text-align: center;
+  transform: translateY(-200%);
+  margin: 7px;
+}
+
+.alert-box ul li {
+  color: white;
+  font-size: 17px;
+}
+
+#alertBtns {
+  transform: translateY(200%);
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+#alertBtns button {
+  width: 100px;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-weight: 800;
+  color: rgb(22, 22, 22);
+}
+
+#alertBtns button:hover {
+  background: transparent;
+  color: white;
+  box-shadow: 0 0 10px;
+}
+
 .footer {
   height: 7vh;
   width: 100%;
@@ -167,6 +221,10 @@ table td {
   .label {
     font-size: 20px;
   }
+
+  .alert-box {
+    width: 75%;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -180,6 +238,10 @@ table td {
 
   .explanation {
     font-size: 20px;
+  }
+
+  .alert-box {
+    width: 95%;
   }
 }
 
@@ -204,6 +266,16 @@ table td {
   .footer h2 {
     font-size: 15px;
   }
+
+  .alert-box h1 {
+    margin-bottom: 30px;
+    transform: translateY(0);
+    font-size: 20px;
+  }
+
+  .alert-box #alertBtns button {
+    width: 25%;
+  }
 }
 
 @media screen and (max-width: 300px) {
@@ -214,6 +286,10 @@ table td {
   .selection {
     height: 70px;
     width: 70px;
+  }
+
+  .alert-box #alertBtns button {
+    width: 45%;
   }
 }
 

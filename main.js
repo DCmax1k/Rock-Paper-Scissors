@@ -143,20 +143,35 @@ window.onbeforeunload = () => {
   }
 };
 
-// Get score
+// Get score from local storage and alert
 window.onload = () => {
   let check = localStorage.getItem('playerScore');
   if (check) {
-    let question = confirm(
-      'Would you like to load the score from last session?'
-    );
-    if (question === true) {
-      playerScore = localStorage.getItem('playerScore');
-      draws = localStorage.getItem('draws');
-      oppScore = localStorage.getItem('oppScore');
-      playerText.innerHTML = playerScore;
-      drawsText.innerHTML = draws;
-      oppText.innerHTML = oppScore;
-    }
+    document.getElementById('alertWins').innerText = `${localStorage.getItem(
+      'playerScore'
+    )} Wins`;
+    document.getElementById('alertDraws').innerText = `${localStorage.getItem(
+      'draws'
+    )} Draws`;
+    document.getElementById('alertLoses').innerText = `${localStorage.getItem(
+      'oppScore'
+    )} Loses`;
+  } else {
+    document.querySelector('.alert-box').style.display = 'none';
   }
 };
+
+// Restore score from local storage or not
+function restoreScore(yesOrNo) {
+  if (yesOrNo === 'yes') {
+    playerScore = localStorage.getItem('playerScore');
+    draws = localStorage.getItem('draws');
+    oppScore = localStorage.getItem('oppScore');
+    playerText.innerHTML = playerScore;
+    drawsText.innerHTML = draws;
+    oppText.innerHTML = oppScore;
+    document.querySelector('.alert-box').style.display = 'none';
+  } else {
+    document.querySelector('.alert-box').style.display = 'none';
+  }
+}
