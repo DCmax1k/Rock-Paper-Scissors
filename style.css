@@ -147,6 +147,7 @@ table td {
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease;
+  visibility: hidden;
 }
 
 .alert-box h1 {

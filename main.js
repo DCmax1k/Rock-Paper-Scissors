@@ -147,6 +147,7 @@ window.onbeforeunload = () => {
 window.onload = () => {
   let check = localStorage.getItem('playerScore');
   if (check) {
+    document.querySelector('.alert-box').style.visibility = 'visible';
     document.getElementById('alertWins').innerText = `${localStorage.getItem(
       'playerScore'
     )} Wins`;
@@ -156,8 +157,6 @@ window.onload = () => {
     document.getElementById('alertLoses').innerText = `${localStorage.getItem(
       'oppScore'
     )} Loses`;
-  } else {
-    document.querySelector('.alert-box').style.display = 'none';
   }
 };
 
