@@ -144,24 +144,32 @@ window.onbeforeunload = () => {
 };
 
 // Get score from local storage and alert
+if (!localStorage.getItem('showAgainCheckbox')) {
+  localStorage.setItem('showAgainCheckbox', 'false');
+}
 window.onload = () => {
-  let check = localStorage.getItem('playerScore');
-  if (check) {
-    document.querySelector('.alert-box').style.visibility = 'visible';
-    document.getElementById('alertWins').innerText = `${localStorage.getItem(
-      'playerScore'
-    )} Wins`;
-    document.getElementById('alertDraws').innerText = `${localStorage.getItem(
-      'draws'
-    )} Draws`;
-    document.getElementById('alertLoses').innerText = `${localStorage.getItem(
-      'oppScore'
-    )} Loses`;
+  console.log(localStorage.getItem('showAgainCheckbox'));
+  if (localStorage.getItem('showAgainCheckbox') == 'false') {
+    let check = localStorage.getItem('playerScore');
+    if (check) {
+      document.querySelector('.alert-box').style.visibility = 'visible';
+      document.getElementById('alertWins').innerText = `${localStorage.getItem(
+        'playerScore'
+      )} Wins`;
+      document.getElementById('alertDraws').innerText = `${localStorage.getItem(
+        'draws'
+      )} Draws`;
+      document.getElementById('alertLoses').innerText = `${localStorage.getItem(
+        'oppScore'
+      )} Loses`;
+    }
   }
 };
 
 // Restore score from local storage or not
 function restoreScore(yesOrNo) {
+  let showChecked = document.getElementById('showAgainCheckbox');
+  localStorage.setItem('showAgainCheckbox', showChecked.checked);
   if (yesOrNo === 'yes') {
     playerScore = localStorage.getItem('playerScore');
     draws = localStorage.getItem('draws');
